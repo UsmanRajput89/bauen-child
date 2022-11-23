@@ -1,0 +1,85 @@
+.ur_form_div{
+    background-color: #171717;
+    padding: 20px;
+}
+.ur_form_div form {
+    width: 60%;
+    margin: 0 auto;
+
+}
+.ur_form_div form .field{
+    margin: 30px 0px;
+}
+
+
+.ur_form_div form label{
+
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    font-family: Poppins;
+    font-weight: normal;
+    font-style: normal;
+
+}
+.ur_label{
+    margin-bottom: 20px !important;
+}
+.ur_chkbox_group{
+    display: flex;
+}
+
+.ur_chkbox_group .r_o_i_box{
+    background-color: #222;
+    border: 1px solid #222;
+    text-align: center;
+    /* padding: 5px 28px; */
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10px !important;
+}
+.ur_chkbox_group .r_o_i_box label{
+    cursor: pointer;
+}
+.ur_chkbox_group .r_o_i_box:hover{
+    border: 1px solid goldenrod;
+    background: rgba(185,152,85,.15);
+}
+.r_o_i_box.active{
+    border: 1px solid goldenrod;
+    background: rgba(185,152,85,.15);
+}
+
+.r_o_i_box.ur_disabled{
+    border: 1px solid #222;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.ur_chkbox_group .r_o_i_box.ur_disabled:hover{
+    background-color: #333;
+    border: 1px solid #333;
+    cursor: not-allowed;
+}
+.ur_chkbox_group .r_o_i_box.ur_disabled label{
+    cursor: not-allowed;
+}
+#ur_pb_form input[type=submit]{
+    font-family: poppins;
+    background: goldenrod;
+    border: 2px solid goldenrod;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+#ur_pb_form input[type=submit]:hover{
+    background: transparent;
+    color: #fff;
+}
+#ur_pb_form .ur_btn{
+    text-align: center;
+    margin: 30px 0px;
+}
