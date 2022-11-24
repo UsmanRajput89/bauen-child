@@ -1,12 +1,37 @@
 .ur_form_div{
     background-color: #171717;
     padding: 20px;
+    display: flex;
 }
 .ur_form_div form {
-    width: 60%;
+    width: 50%;
     margin: 0 auto;
+    padding: 0px 50px;
+}
+.ur_form_div .ur_result{
+    display: none;
+    width: 50%;
+    padding: 30px 50px;
+    border-left: 1px solid #ccc;
+}
+
+.ur_form_div .ur_result p, .ur_form_div .ur_result h3 {
+    padding: 0px;
+    margin: 0px;
 
 }
+.ur_form_div .ur_result p{
+    font-size: 0.9rem;
+    color: #fff;
+}
+.ur_form_div .ur_result h3{
+    color: goldenrod;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+
+
 .ur_form_div form .field{
     margin: 30px 0px;
 }
@@ -56,7 +81,7 @@
 
 .r_o_i_box.ur_disabled{
     border: 1px solid #222;
-    opacity: 0.6;
+    opacity: 0.4;
     cursor: not-allowed;
 }
 
@@ -82,4 +107,16 @@
 #ur_pb_form .ur_btn{
     text-align: center;
     margin: 30px 0px;
+}
+
+
+/* Contact Form */
+.ur_overlay_bg{
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100vh;
+    height: 100vh;
+    top: 0;
+    color: #fff;
+    z-index: 99;
 }
