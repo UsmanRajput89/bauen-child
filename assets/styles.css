@@ -112,11 +112,140 @@
 
 /* Contact Form */
 .ur_overlay_bg{
+    display: none;
     background-color: rgba(0, 0, 0, 0.7);
     position: fixed;
-    width: 100vh;
+    width: 100%;
     height: 100vh;
     top: 0;
     color: #fff;
-    z-index: 99;
+    z-index: 9999999;
+    margin-left: -120px;
+    padding: 50px 120px;
 }
+.ur_overlay_bg .ur_overlay{
+    width: 60%;
+    margin: 0 auto;
+    background-color: #222;
+    padding: 20px 30px;
+}
+.ur_modal_head{
+    display: flex;
+    justify-content: space-between;
+}
+.ur_modal_close img{
+    width: 20px;
+    height: auto;
+    cursor: pointer;
+}
+.ur_disclaimer{
+    font-size: 0.8rem;
+    line-height: 1.1rem;
+    color: goldenrod;
+    border: 1px solid goldenrod;
+    padding: 15px;
+}
+#ur_contact_form label{
+    margin: 0;
+}
+#ur_contact_form input {
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #333;
+    margin-bottom: 10px;
+}
+
+#ur_contact_form_btn{
+    border: 1px solid goldenrod;
+    background-color: transparent;
+    color: goldenrod;
+    padding: 3px 15px;
+    font-family: poppins;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Diversification Calculator */
+#ur_dc{
+    background-color: #171717;
+    display: flex;
+    position: relative;
+    padding: 30px;
+    border-radius: 10px;
+    color: #fff;
+}
+#ur_dc .steps, #ur_dc .content{
+    width:40%;
+    padding: 20px;
+} 
+#ur_dc .content{
+    width:60%;
+    padding: 20px;
+}
+#ur_dc .steps ul li,  #ur_dc .steps ul li a span{
+    display: none;
+}
+#ur_dc .steps ul li.current{
+    display: block;
+}
+#ur_dc .steps{
+    padding-top: 90px;
+}
+
+#ur_dc .content h3.title{
+    display: none;
+}
+
+#ur_dc .actions{
+    position: absolute;
+    left: 50px;
+    top: 80px;
+}
+
+#ur_dc .actions ul li{
+    display: none !important;
+} 
+#ur_dc .actions ul li:first-of-type{
+    display: block !important;
+}
+
+#ur_dc .actions ul li.disabled{
+    display: none !important;
+}
+
+
+
+.q_group .q_box{
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    background-color: #222;
+    border: 1px solid #222;
+    box-shadow: 0px 0px 24px rgb(0 0 0 / 50%);
+    border-radius: 6px;
+    margin: 15px;
+    cursor: pointer;
+    height: 100px;
+}
+.q_group .q_box.selected{
+    border: 1px solid #b99855;
+    background: rgba(185,152,85,0.15);
+}
+.q_group .q_box:hover{
+    border: 1px solid #b99855;
+}
+.q_group .q_box label{
+    cursor: pointer;
+}
+.q_group .q_box img{
+    width: 40px;
+    height: auto;
+}
+.q_group .q_box label{
+    padding: 0px 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    /* font-family: Poppins; */
+}
+
+

@@ -9,6 +9,8 @@ jQuery(document).ready(function($) {
         $('.roi_box_js').removeClass('active');
         $(this).addClass('active');
 
+        
+
         let val = $("input[name=r_o_i]:checked").val();
         ur_adding_disable(val);
         change_values(val);
@@ -17,6 +19,8 @@ jQuery(document).ready(function($) {
     function ur_adding_disable(val){
         
         $('.ioi_box').removeClass('active');
+        $('.ioi_box_2').addClass('active');
+
         $('.ioi_box').removeClass('ur_disabled');
         
         if (val == 4) {
@@ -48,17 +52,10 @@ jQuery(document).ready(function($) {
     });
 
 
-    $('.ur_pb_submit').click(function (e) {
+    $('#ur_pb_form').on('submit', function(e)  {
         e.preventDefault();
-        // console.log("PB form submitted");
-        
 
-        let val = $("input[name=r_o_i]:checked").val();
-        
-        change_values(val);
-        
-        $('.ur_result').show();
-
+        $('.ur_overlay_bg').fadeIn(); 
     })
 
     function change_values(val) {
@@ -82,4 +79,50 @@ jQuery(document).ready(function($) {
         $('#ur_result_head').html(head);
         $('#ur_result_para').html(para);
     }
+
+    $('.ur_modal_close').click(function (e) {
+        $('.ur_overlay_bg').fadeOut(); 
+    });                    
+
+    $('#ur_contact_form').on('submit', function(e) {
+        
+        e.preventDefault();
+
+        $('.ur_overlay_bg').fadeOut(); 
+        
+        let val = $("input[name=r_o_i]:checked").val();
+        
+        change_values(val);
+        
+        $('.ur_result').show();
+
+        $(this).trigger("reset");
+    });
+
+    $("#ur_dc").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slideLeft",
+        autoFocus: true,
+        labels:{
+            previous : "<i class='ti-angle-left'></i> Go Back",
+        }
+    });
+
+    $('#ur_dc .actions a[href=#next]').attr('id', 'ur_cs_next');
+
+    // $(".q_box").click(function () {
+    // })
+    
+    $(".q_box").on('click', function() {
+
+        $(this).siblings('.q_box').removeClass('selected');
+        $(this).find('.ur_cs_radio').prop("checked", true);
+        $(this).addClass('selected');
+        
+        let val = $("input[name=r_o_i]:checked").val();
+        
+        $('#ur_cs_next').click();
+    });
+
 });
