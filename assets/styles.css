@@ -165,6 +165,33 @@
     cursor: pointer;
 }
 
+/* ------------------------- */
+/* Progress Bar */
+/* ------------------------- */
+
+#progressbar{
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+}
+#progressbar .ur_step_count{
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+#progressbar .ur_bar span{
+    width: 24px;
+    height: 3px;
+    background: rgba(255,255,255,0.5);
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    margin-right: 3px;
+}
+#progressbar .ur_bar span.ur_completed{
+    background-color: #b99855;
+}
+
 /* -------------------------------- */
 /* Diversification Calculator */
 /* -------------------------------- */
@@ -217,7 +244,16 @@
 #ur_dc .actions ul li.disabled{
     display: none !important;
 }
-
+#ur_cs_prev i{
+    font-size: 12px;
+    color: #b99855;
+}
+#ur_cs_prev:hover #ur_cs_prev i{
+    color: #fff !important;
+}
+#ur_cs_prev:hover {
+    color: #b99855;
+}
 
 
 .q_group .q_box{

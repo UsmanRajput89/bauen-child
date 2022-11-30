@@ -14,6 +14,24 @@ function ur_diversification_calculator_fn()
     <form action="" id="ur_dc_form">
         <div id="ur_dc">
 
+            <div id="progressbar">
+                <div class="ur_step_count">
+                    <span class="ur_current_step">0</span>/<span class="ur_total_step">10</span> Completed
+                </div>
+                <div class="ur_bar" id="ur_bar">
+                    <span class="ur_completed"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            
             <h3>Q1. How many sectors are you invested in?</h3>    
             <section>
                 <div class="q_group">
@@ -253,7 +271,9 @@ function ur_diversification_calculator_fn()
 
                 </div>
             </section>
+
         </div>
+        
     </form>
 
     <div id="ur_dc_show_result">

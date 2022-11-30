@@ -1,7 +1,8 @@
-jQuery(document).ready(function($) {
-	// console.log('UR here!');
+jQuery(document).ready(function ($) {
+    // console.log('UR here!');
 
-    $('.roi_box_js').on('click',function () {
+
+    $('.roi_box_js').on('click', function () {
 
         $('input[name=r_o_i]').removeAttr('checked');
         $(this).find('input[name=r_o_i]').prop("checked", true);
@@ -9,20 +10,20 @@ jQuery(document).ready(function($) {
         $('.roi_box_js').removeClass('active');
         $(this).addClass('active');
 
-        
+
 
         let val = $("input[name=r_o_i]:checked").val();
         ur_adding_disable(val);
         change_values(val);
     });
-    
-    function ur_adding_disable(val){
-        
+
+    function ur_adding_disable(val) {
+
         $('.ioi_box').removeClass('active');
         $('.ioi_box_2').addClass('active');
 
         $('.ioi_box').removeClass('ur_disabled');
-        
+
         if (val == 4) {
             $('.ioi_box_3, .ioi_box_4, .ioi_box_5').addClass('ur_disabled');
         }
@@ -36,12 +37,11 @@ jQuery(document).ready(function($) {
             $('.ioi_box_1').addClass('ur_disabled');
         }
 
-        
+
     }
 
+
     $('.ioi_box').on('click', function () {
-        // $(".ioi_box.ur_disabled").unbind();
-        // console.log("ioi_box box clicked");
 
         $('.ioi_box .i_o_i').removeAttr('checked');
         $(this).find('[name=i_o_i]').prop("checked", true);
@@ -52,10 +52,10 @@ jQuery(document).ready(function($) {
     });
 
 
-    $('#ur_pb_form').on('submit', function(e)  {
+    $('#ur_pb_form').on('submit', function (e) {
         e.preventDefault();
 
-        $('.ur_overlay_bg').fadeIn(); 
+        $('.ur_overlay_bg').fadeIn();
     })
 
     function change_values(val) {
@@ -81,91 +81,104 @@ jQuery(document).ready(function($) {
     }
 
     $('.ur_modal_close').click(function (e) {
-        $('.ur_overlay_bg').fadeOut(); 
-    });                    
+        $('.ur_overlay_bg').fadeOut();
+    });
 
-    $('#ur_contact_form').on('submit', function(e) {
-        
+    $('#ur_contact_form').on('submit', function (e) {
+
         e.preventDefault();
 
-        $('.ur_overlay_bg').fadeOut(); 
-        
+        $('.ur_overlay_bg').fadeOut();
+
         let val = $("input[name=r_o_i]:checked").val();
-        
+
         change_values(val);
-        
+
         $('.ur_result').show();
 
         $(this).trigger("reset");
     });
+
+    // 
+    // 
+    // 
+    // 
 
     $("#ur_dc").steps({
         headerTag: "h3",
         bodyTag: "section",
         transitionEffect: "none",
         autoFocus: true,
-        labels:{
-            previous : "<i class='ti-angle-left'></i> Go Back",
+        labels: {
+            previous: "<i class='ti-angle-left'></i> Go Back",
         }
     });
+    var steps_count = 1;
 
     $('#ur_dc .actions a[href=#next]').attr('id', 'ur_cs_next');
+    $('#ur_dc .actions a[href=#previous]').attr('id', 'ur_cs_prev');
 
-    // $(".q_box").click(function () {
-    // })
+    $("#ur_cs_prev").click(function () {
+        steps_count-- ;
+        
+        console.log(steps_count);
+
+        ur_steps_change(steps_count);
+    })
+
     
-    $(".q_box").on('click', function() {
+
+    $(".q_box").on('click', function () {
 
         $(this).siblings('.q_box').removeClass('selected');
         $(this).find('.ur_cs_radio').prop("checked", true);
         $(this).addClass('selected');
-        
-        let val = $("input[name=r_o_i]:checked").val();
-        
+
+        // let val = $("input[name=r_o_i]:checked").val();
+
         $('#ur_cs_next').click();
+
+        steps_count++;
+        console.log(steps_count);
+        ur_steps_change(steps_count);
+
     });
 
     $(".q_box10").on('click', function () {
-         
-
-        console.log("q10 answered");
-       
-        // let q1 = $("input[name=q1]:checked").val();
-        // let q2 = $("input[name=q2]:checked").val();
-        // let q3 = $("input[name=q3]:checked").val();
-        // let q4 = $("input[name=q4]:checked").val();
-        // let q5 = $("input[name=q5]:checked").val();
-        // let q6 = $("input[name=q6]:checked").val();
-        // let q7 = $("input[name=q7]:checked").val();
-        // let q8 = $("input[name=q8]:checked").val();
-        // let q9 = $("input[name=q9]:checked").val();
-        // let q10 = $("input[name=q10]:checked").val();
-
-
-        // console.log(q1,q2,q3,q4,q5,q6,q7,q8,q9,q10);
 
         var inputs = $('#ur_dc_form input:checked');
 
-        // // not sure if you wanted this, but I thought I'd add it.
-        // // get an associative array of just the values.
         var values = {};
         var total = 0;
-        inputs.each(function() {
+        inputs.each(function () {
             let val = Number($(this).val());
             values[this.name] = val;
             total += val;
         });
 
-        // console.log(values);
-        // console.log(total);
         let total_per = (total / 30) * 100;
 
         $('.dc_obtained_score').html(total);
         $('.ur_status').css('left', total_per + '%');
-        
+
         $('#ur_dc_form').fadeOut();
         $('#ur_dc_show_result').fadeIn();
 
     });
-    
+
+    function ur_steps_change(steps_count){
+        $('#ur_bar span').removeClass("ur_completed");
+        
+        let ur_steps = document.getElementById('ur_bar').children;
+        
+
+        for (var i = 0; i < steps_count; i++) {
+            let class_list = ur_steps[i].classList;
+            class_list.add("ur_completed");
+        }
+    }
+
+
+
+
 });
