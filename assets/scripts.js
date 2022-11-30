@@ -102,7 +102,7 @@ jQuery(document).ready(function($) {
     $("#ur_dc").steps({
         headerTag: "h3",
         bodyTag: "section",
-        transitionEffect: "slideLeft",
+        transitionEffect: "none",
         autoFocus: true,
         labels:{
             previous : "<i class='ti-angle-left'></i> Go Back",
@@ -125,4 +125,47 @@ jQuery(document).ready(function($) {
         $('#ur_cs_next').click();
     });
 
+    $(".q_box10").on('click', function () {
+         
+
+        console.log("q10 answered");
+       
+        // let q1 = $("input[name=q1]:checked").val();
+        // let q2 = $("input[name=q2]:checked").val();
+        // let q3 = $("input[name=q3]:checked").val();
+        // let q4 = $("input[name=q4]:checked").val();
+        // let q5 = $("input[name=q5]:checked").val();
+        // let q6 = $("input[name=q6]:checked").val();
+        // let q7 = $("input[name=q7]:checked").val();
+        // let q8 = $("input[name=q8]:checked").val();
+        // let q9 = $("input[name=q9]:checked").val();
+        // let q10 = $("input[name=q10]:checked").val();
+
+
+        // console.log(q1,q2,q3,q4,q5,q6,q7,q8,q9,q10);
+
+        var inputs = $('#ur_dc_form input:checked');
+
+        // // not sure if you wanted this, but I thought I'd add it.
+        // // get an associative array of just the values.
+        var values = {};
+        var total = 0;
+        inputs.each(function() {
+            let val = Number($(this).val());
+            values[this.name] = val;
+            total += val;
+        });
+
+        // console.log(values);
+        // console.log(total);
+        let total_per = (total / 30) * 100;
+
+        $('.dc_obtained_score').html(total);
+        $('.ur_status').css('left', total_per + '%');
+        
+        $('#ur_dc_form').fadeOut();
+        $('#ur_dc_show_result').fadeIn();
+
+    });
+    
 });

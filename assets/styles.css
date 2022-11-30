@@ -165,14 +165,19 @@
     cursor: pointer;
 }
 
+/* -------------------------------- */
 /* Diversification Calculator */
+/* -------------------------------- */
+
+
 #ur_dc{
     background-color: #171717;
     display: flex;
     position: relative;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 5px;
     color: #fff;
+    margin-bottom: 20px;
 }
 #ur_dc .steps, #ur_dc .content{
     width:40%;
@@ -248,4 +253,70 @@
     /* font-family: Poppins; */
 }
 
+#ur_dc_show_result{
+    background-color: #171717;
+    position: relative;
+    padding: 40px;
+    border-radius: 5px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    display: none;
+}
+#ur_dc_show_result p{
+    color: #fff;
+}
+#ur_dc_show_result .ur_dc_score{    
+    color: #b99855;
+}
+#ur_dc_show_result .dc_diversed_emojis{
+    display: flex;
+    justify-content: space-around;
+    font-family: sans-serif;
+}
 
+#ur_dc_show_result .dc_diversed_emojis>div{
+    display: flex;
+}
+#ur_dc_show_result .dc_diversed_emojis p{
+    margin-left: 10px;
+}
+.ur-progress-status-bar {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg,#c63d3d,#b5e361);
+    margin: 20px 0px;
+}
+.ur-progress-status-bar .ur_status{
+    width: 6px;
+    height: 23px;
+    position: absolute;
+    top: -6px;
+    background: #fff;
+    z-index: 2;
+    left: 50%;
+}
+#ur_dc_show_result .dc_recal_btn a, .cta_btn a{
+    border: 1px solid rgba(185,152,85,1.0);
+    border-radius: 0px;
+    color: rgba(185,152,85,1.0);
+    padding: 10px 24px;
+    transition: all .3s;
+    width: 199px;
+    max-width: 100%;
+}
+#ur_dc_show_result .dc_recal_btn a:hover, .cta_btn a:hover{
+    color: #fff;
+    background-color:rgba(185,152,85,1.0) ;
+}
+.ur_dc_cta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#ur_dc_show_result .ur_dc_cta .ur_dc_cta_content p{
+    margin: 0;
+    text-align: left;
+}
