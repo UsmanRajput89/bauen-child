@@ -111,8 +111,6 @@ function ur_portfolio_builder_fields(){
                 <label for="">Agree on Term and Conditions</label>
                 <br>
                 <button type="submit" id="ur_contact_form_btn">Submit</button>
-                <!-- <button type="submit" id="ur_contact_form_btn">Submit</button> -->
-                <!-- <input type="submit" value="Submit"> -->
             </form>
         </div>
     </div>

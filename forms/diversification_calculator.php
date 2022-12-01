@@ -12,11 +12,11 @@ function ur_diversification_calculator_fn()
     ob_start(); ?>
 
     <form action="" id="ur_dc_form">
-        <div id="ur_dc">
+        <div id="ur_dc" class="ur_wizard" data-info="dc">
 
             <div id="progressbar">
                 <div class="ur_step_count">
-                    <span class="ur_current_step">0</span>/<span class="ur_total_step">10</span> Completed
+                    <span class="ur_current_step">01</span>/<span class="ur_total_step">10</span> Completed
                 </div>
                 <div class="ur_bar" id="ur_bar">
                     <span class="ur_completed"></span>
@@ -319,7 +319,7 @@ function ur_diversification_calculator_fn()
             <span class="ur_status" style="left: 90%;"></span>
         </div>
         <div class="dc_recal_btn my-5">
-            <a href="#">Recalculate</a>
+            <a href="#" onClick="history.go(0);">Recalculate</a>
         </div>
         <div class="ur_dc_cta">
             <div class="ur_dc_cta_content">
@@ -328,7 +328,7 @@ function ur_diversification_calculator_fn()
             </div>
             
             <div class="cta_btn">
-                <a href="/financial-tools/portfolio-builder/">Try Portflio Planner</a>
+                <a href="#" >Try Portflio Planner</a>
             </div>
         </div>
     </div>
