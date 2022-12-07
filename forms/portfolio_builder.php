@@ -99,18 +99,30 @@ function ur_portfolio_builder_fields(){
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi temporibus tempora inventore assumenda laudantium.
             </p>
             <form action="#" id="ur_contact_form" method="POST">
-                <label for="first_name">First Name*</label>
-                <input type="text" name="first_name" required>
-                <label for="last_name">Last Name*</label>
-                <input type="text" name="last_name" required>
-                <label for="email">Email*</label>
-                <input type="email" name="email" required>
-                <label for="number">Phone Number*</label>
-                <input type="text" name="number" required>
+                <div class="ur_row">
+                    <div class="ur_col">
+                        <label for="first_name">First Name*</label>
+                        <input type="text" name="first_name" required>
+                    </div>
+                    <div class="ur_col">
+                        <label for="last_name">Last Name*</label>
+                        <input type="text" name="last_name" required>
+                    </div>
+                </div>
+                <div class="ur_row">
+                    <div class="ur_col">
+                        <label for="email">Email*</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="ur_col">
+                        <label for="number">Phone Number*</label>
+                        <input type="text" name="number" required>
+                    </div>
+                </div>
                 <input type="checkbox" name="t_c" required>
                 <label for="">Agree on Term and Conditions</label>
                 <br>
-                <button type="submit" id="ur_contact_form_btn">Submit</button>
+                <button type="submit" id="ur_contact_form_btn">Check my Results</button>
             </form>
         </div>
     </div>

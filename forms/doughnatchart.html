@@ -2,24 +2,37 @@
 <html>
 
     <head>
+        
+    </head>
+
+    <body>
+        <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+        <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
         <script>
             window.onload = function () {
-
                 var options = {
                     animationEnabled: true,
-                    title: {
-                        text: "ACME Corporation Apparel Sales"
-                    },
                     data: [{
                         type: "doughnut",
                         innerRadius: "40%",
-                        showInLegend: true,
-                        legendText: "{label}",
                         indexLabel: "{label}: #percent%",
                         dataPoints: [
-                            { label: "Department Stores", y: 1000 },
-                            { label: "New Point", y: 500 },
-
+                            { 
+                                color: "#99ADB6",
+                                label: "Capital Yielding", 
+                                y: 30 
+                            },
+                            { 
+                                color: "#CEB788",
+                                label: "Capital Growth", 
+                                y: 20 
+                            },
+                            { 
+                                color: "#C0E0E7",
+                                label: "Absolute Return", 
+                                y: 50 
+                            },
                         ]
                     }]
                 };
@@ -27,12 +40,6 @@
 
             }
         </script>
-    </head>
-
-    <body>
-        <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
-        <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-        <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
     </body>
 
 </html>
