@@ -19,5 +19,6 @@ function child_theme_enqueue_styles() {
     wp_enqueue_script( 'ur_jquery_steps', get_stylesheet_directory_uri() . '/assets/jquery.steps.min.js', array('jquery'), null, true );
     
     wp_enqueue_script( 'ur_scripts', get_stylesheet_directory_uri() . '/assets/scripts.js', array('jquery'), null, true );
+    wp_enqueue_script( 'smtp_js', 'https://smtpjs.com/v3/smtp.js', array('jquery'), null, true );
     
 }

@@ -48,26 +48,31 @@ function ur_portfolio_builder_fields(){
                     <div class="r_o_i_box ioi_box ioi_box_1" >
                         <label for="">0%</label>
                         <input type="radio" value="0" name="i_o_i" hidden required>
+                        <span class="ur_tooltip">The option you are trying to select is not possible, please select an annual income option that does not exceed more than half of your total returns.</span>
                     </div>
                     
                     <div class="r_o_i_box ioi_box ioi_box_2">
                         <label for="">2%</label>
                         <input type="radio" value="2" name="i_o_i" hidden required>
+                        <span class="ur_tooltip">The option you are trying to select is not possible, please select an annual income option that does not exceed more than half of your total returns.</span>
                     </div>
 
                     <div class="r_o_i_box ioi_box ioi_box_3">
                         <label for="">3%</label>
                         <input type="radio" value="3" name="i_o_i" hidden required>
+                        <span class="ur_tooltip">The option you are trying to select is not possible, please select an annual income option that does not exceed more than half of your total returns.</span>
                     </div>
 
                     <div class="r_o_i_box ioi_box ioi_box_4">
                         <label for="">4%</label>
                         <input type="radio" value="4" name="i_o_i" hidden required>
+                        <span class="ur_tooltip">The option you are trying to select is not possible, please select an annual income option that does not exceed more than half of your total returns.</span>
                     </div>
 
                     <div class="r_o_i_box ioi_box ioi_box_5">
                         <label for="">5%</label>
                         <input type="radio" value="5" name="i_o_i" hidden required>
+                        <span class="ur_tooltip">The option you are trying to select is not possible, please select an annual income option that does not exceed more than half of your total returns.</span>
                     </div>
 
                 </div>
@@ -87,18 +92,18 @@ function ur_portfolio_builder_fields(){
             
     </div>
 
-    <div class="ur_overlay_bg">
+    <div class="ur_overlay_bg" id="ur_overlai">
         <div class="ur_overlay">
             <div class="ur_modal_head">
-                <h5>Potentiel Portfolio</h5>
+                <h5>Potential Portfolio</h5>
                 <div class="ur_modal_close">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/closeIcon.svg" alt="">
                 </div>
             </div>
-            <p class="ur_disclaimer">
+            <!-- <p class="ur_disclaimer">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi temporibus tempora inventore assumenda laudantium.
-            </p>
-            <form action="#" id="ur_contact_form" method="POST">
+            </p> -->
+            <form action="#" id="ur_contact_form" class="ur_contact_form" method="POST">
                 <div class="ur_row">
                     <div class="ur_col">
                         <label for="first_name">First Name*</label>

@@ -333,6 +333,45 @@ function ur_diversification_calculator_fn()
         </div>
     </div>
 
+    <div class="ur_overlay_bg" id="ur_overlai">
+        <div class="ur_overlay">
+            <div class="ur_modal_head">
+                <h5>Potential Portfolio</h5>
+                <div class="ur_modal_close">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/closeIcon.svg" alt="">
+                </div>
+            </div>
+            <!-- <p class="ur_disclaimer">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi temporibus tempora inventore assumenda laudantium.
+            </p> -->
+            <form action="#" id="ur_contact_form_dc" class="ur_contact_form" method="POST">
+                <div class="ur_row">
+                    <div class="ur_col">
+                        <label for="first_name">First Name*</label>
+                        <input type="text" name="first_name" required>
+                    </div>
+                    <div class="ur_col">
+                        <label for="last_name">Last Name*</label>
+                        <input type="text" name="last_name" required>
+                    </div>
+                </div>
+                <div class="ur_row">
+                    <div class="ur_col">
+                        <label for="email">Email*</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="ur_col">
+                        <label for="number">Phone Number*</label>
+                        <input type="text" name="number" required>
+                    </div>
+                </div>
+                <input type="checkbox" name="t_c" required>
+                <label for="">Agree on Term and Conditions</label>
+                <br>
+                <button type="submit" id="ur_contact_form_btn">Check my Results</button>
+            </form>
+        </div>
+    </div>
     <?php
     return ob_get_clean();
 }

@@ -14,13 +14,14 @@ jQuery(document).ready(function ($) {
 
         let val = $("input[name=r_o_i]:checked").val();
         ur_adding_disable(val);
+
         change_values(val);
     });
 
     function ur_adding_disable(val) {
 
         $('.ioi_box').removeClass('active');
-        $('.ioi_box_2').addClass('active');
+        // $('.ioi_box_2').addClass('active');
 
         $('.ioi_box').removeClass('ur_disabled');
 
@@ -99,6 +100,15 @@ jQuery(document).ready(function ($) {
         $(this).trigger("reset");
     });
 
+    $(document).on('mouseenter', ".ur_disabled", function () {
+        // console.log("Disabled hovered!");
+        $(this).find(".ur_tooltip").fadeIn();
+    })
+    $(document).on('mouseleave', ".ur_disabled", function () {
+        // console.log("Disabled hovered!");
+        $(this).find(".ur_tooltip").fadeOut();
+    })
+
     // ----------------------------------------------------
     //          Diversification Calculator
     // ----------------------------------------------------
@@ -130,65 +140,57 @@ jQuery(document).ready(function ($) {
 
     $('#ur_dc .actions a[href=#next]').attr('id', 'ur_cs_next');
     $('#ur_dc .actions a[href=#previous]').attr('id', 'ur_cs_prev');
-    
+
     $('#ur_rf .actions a[href=#next]').attr('id', 'ur_rf_next');
     $('#ur_rf .actions a[href=#previous]').attr('id', 'ur_rf_prev');
 
     $("#ur_cs_prev").click(function () {
-        steps_count_dc-- ;
+        steps_count_dc--;
         ur_steps_change_dc(steps_count_dc);
     });
 
     $("#ur_rf_prev").click(function () {
-        steps_count_rf-- ;
+        steps_count_rf--;
         ur_steps_change_rf(steps_count_rf);
     })
 
-    
+
 
     $(".q_box").on('click', function () {
 
         $(this).siblings('.q_box').removeClass('selected');
         $(this).find('.ur_cs_radio').prop("checked", true);
         $(this).addClass('selected');
-        
+
         let ur_wizard = $(this).parents('.ur_wizard').data('info');
 
-
-        // let info = $(ur_wizard).attr("data-info");
-        // console.log(ur_wizard);
-        
         if (ur_wizard == "rf") {
             $('#ur_rf_next').click();
             steps_count_rf++;
             ur_steps_change_rf(steps_count_rf);
-        }else{
+        } else {
             $('#ur_cs_next').click();
             steps_count_dc++;
             ur_steps_change_dc(steps_count_dc);
         }
-        
-        
-        
-        
 
     });
 
 
-    function ur_steps_change_dc(steps_count){
-        
+    function ur_steps_change_dc(steps_count) {
+
         if (steps_count <= 10) {
             $('#ur_bar span').removeClass("ur_completed");
             let ur_steps = document.getElementById('ur_bar').children;
-            
-            let a_step = (steps_count).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+
+            let a_step = (steps_count).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
             $('.ur_current_step').html(a_step);
             for (var i = 0; i < steps_count; i++) {
                 let class_list = ur_steps[i].classList;
                 class_list.add("ur_completed");
             }
-        // }else if (steps_count == 11) {
-        }else {
+            // }else if (steps_count == 11) {
+        } else {
 
             var inputs = $('#ur_dc_form input:checked');
 
@@ -206,10 +208,24 @@ jQuery(document).ready(function ($) {
             $('.ur_status').css('left', total_per + '%');
 
             $('#ur_dc_form').fadeOut();
-            $('#ur_dc_show_result').fadeIn();
+
+
+            $('.ur_overlay_bg').fadeIn();
+            // $('#ur_dc_show_result').fadeIn();
         }
 
     }
+
+    $('#ur_contact_form_dc').on('submit', function (e) {
+
+        e.preventDefault();
+        $('.ur_overlay_bg').fadeOut();
+        $('#ur_dc_show_result').fadeIn();
+
+        $(this).trigger("reset");
+    });
+
+
 
 
     function ur_steps_change_rf(steps_count) {
@@ -217,15 +233,15 @@ jQuery(document).ready(function ($) {
         if (steps_count <= 6) {
             $('#ur_bar span').removeClass("ur_completed");
             let ur_steps = document.getElementById('ur_bar').children;
-            
-            let a_step = (steps_count).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+
+            let a_step = (steps_count).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
             $('.ur_current_step').html(a_step);
 
             for (var i = 0; i < steps_count; i++) {
                 let class_list = ur_steps[i].classList;
                 class_list.add("ur_completed");
             }
-        }else {
+        } else {
 
             // console.log("6 steps Completed");
             let q1 = $("input[name=q1]:checked").val();
@@ -234,10 +250,10 @@ jQuery(document).ready(function ($) {
             let q4 = $("input[name=q4]:checked").val();
             let q5 = $("input[name=q5]:checked").val();
             let q6 = $("input[name=q6]:checked").val();
-            
 
-            let risk_profiler = Number(q1) + Number(q4) + Number(q6) ;
-            let responsive_level = Number(q2) + Number(q3) + Number(q5) ;
+
+            let risk_profiler = Number(q1) + Number(q4) + Number(q6);
+            let responsive_level = Number(q2) + Number(q3) + Number(q5);
 
             let rp_title;
             let rp_subtext;
@@ -246,11 +262,11 @@ jQuery(document).ready(function ($) {
                 rp_title = "Conservative";
                 rp_subtext = "Risk Averse";
                 rp_text = "You are a conservative investor seeking to preserve your wealth while earning modest but consistent periodic returns, even if overall investment returns are lower. You do not like market downturns and will prepare ahead of time to minimize losses during such events.";
-            }else if (risk_profiler <= 7){
+            } else if (risk_profiler <= 7) {
                 rp_title = "Balanced";
                 rp_subtext = "Moderate Risk Taker";
                 rp_text = "You are a balanced investor seeking moderate returns while ensuring a minimum periodic income. You don’t panic during a market downturn, but you will be cautious. You try to balance risk and reward and do not like excessive risk or minimal returns.";
-            }else{
+            } else {
                 rp_title = "Adventurer";
                 rp_subtext = "Risk Seeker";
                 rp_text = "You have a high risk tolerance and can withstand market fluctuations more than others. A chance to earn higher returns does not discourage you from accepting short-term losses and forgoing periodical income. In a market downturn, you can control your emotions and stick to your investment plan.";
@@ -268,11 +284,11 @@ jQuery(document).ready(function ($) {
                 rp_res_title = "Calm Responder";
                 rp_res_subtext = "Low Responsiveness";
                 rp_res_text = "You take your time to understand new information to make the right decision regardless of time constraints. It is easy for you to stick to your investment plan even during market volatility. You tend not to check your portfolio very frequently.";
-            }else if(responsive_level <= 7){
+            } else if (responsive_level <= 7) {
                 rp_res_title = "Paced Responder";
                 rp_res_subtext = "Medium Responsiveness";
                 rp_res_text = "You do NOT act impulsively to new information but try to make an informed decision by monitoring the situation and doing your own research. During market volatility, you can stick to your investment plan even if it is uncomfortable but may deviate if you get too uncomfortable. You tend to review your portfolio regularly.";
-            }else{
+            } else {
                 rp_res_title = "Fast Responder";
                 rp_res_subtext = "High Responsiveness";
                 rp_res_text = "You react quickly and make quick decisions in response to new information even if the full picture is not yet visible. Market volatility is extremely uncomfortable, forcing you to act immediately. You tend to check your portfolio very frequently even if you have a long-term investment plan.";
@@ -284,9 +300,39 @@ jQuery(document).ready(function ($) {
 
 
             $('#ur_rf_form').fadeOut();
-            $('#ur_df_show_result').fadeIn();
+            $('.ur_overlay_bg').fadeIn();
         }
     }
 
 
+    $('#ur_contact_form_rf').on('submit', function (e) {
+
+        e.preventDefault();
+
+        $('.ur_overlay_bg').fadeOut();
+
+        $('#ur_df_show_result').fadeIn();
+
+        // sendcontact();
+
+
+
+        $(this).trigger("reset");
+
+    });
+
+
+    function sendcontact() {
+        Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "username",
+            Password: "password",
+            To: 'them@website.com',
+            From: "you@isp.com",
+            Subject: "This is the subject",
+            Body: "And this is the body"
+        }).then(
+            message => alert(message)
+        );
+    }
 });
