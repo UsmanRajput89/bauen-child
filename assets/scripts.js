@@ -90,14 +90,31 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
 
         $('.ur_overlay_bg').fadeOut();
+        $('.ur_btn').fadeOut();
 
         let val = $("input[name=r_o_i]:checked").val();
 
         change_values(val);
 
+        // let formData = new FormData(this);
+        // formData.append('action', 'for_sending_mail');
+        // $.ajax({
+        //     type: "POST",
+        //     url: frontendajax.ajaxurl,
+        //     data: formData,
+        //     contentType: false,
+        //     processData: false,
+        //     success: function(response){
+        //         console.log("Mail sent Success!");
+        //     },
+        // });
+
+
+
         $('.ur_result').show();
 
         $(this).trigger("reset");
+
     });
 
     $(document).on('mouseenter', ".ur_disabled", function () {
@@ -207,7 +224,7 @@ jQuery(document).ready(function ($) {
             $('.dc_obtained_score').html(total);
             $('.ur_status').css('left', total_per + '%');
 
-            $('#ur_dc_form').fadeOut();
+            
 
 
             $('.ur_overlay_bg').fadeIn();
@@ -220,6 +237,7 @@ jQuery(document).ready(function ($) {
 
         e.preventDefault();
         $('.ur_overlay_bg').fadeOut();
+        $('#ur_dc_form').fadeOut();
         $('#ur_dc_show_result').fadeIn();
 
         $(this).trigger("reset");
@@ -299,7 +317,7 @@ jQuery(document).ready(function ($) {
 
 
 
-            $('#ur_rf_form').fadeOut();
+            // $('#ur_rf_form').fadeOut();
             $('.ur_overlay_bg').fadeIn();
         }
     }
@@ -309,8 +327,10 @@ jQuery(document).ready(function ($) {
 
         e.preventDefault();
 
+
         $('.ur_overlay_bg').fadeOut();
 
+        $('#ur_rf_form').fadeOut();
         $('#ur_df_show_result').fadeIn();
 
         // sendcontact();
@@ -321,18 +341,23 @@ jQuery(document).ready(function ($) {
 
     });
 
+    // function sendcontact() {
+    //     console.log("This will send mail HF!");
+        
+        
+    // }
 
-    function sendcontact() {
-        Email.send({
-            Host: "smtp.elasticemail.com",
-            Username: "username",
-            Password: "password",
-            To: 'them@website.com',
-            From: "you@isp.com",
-            Subject: "This is the subject",
-            Body: "And this is the body"
-        }).then(
-            message => alert(message)
-        );
-    }
+    // function sendcontact() {
+    //     Email.send({
+    //         Host: "mail.reabus.me",
+    //         Username: "salman@reabus.me",
+    //         Password: "c++VB6.0",
+    //         To: 'usmanrana18989@gmail.com',
+    //         From: "cont@reabus.me",
+    //         Subject: "This is the subject",
+    //         Body: "And this is the body"
+    //     }).then(
+    //         message => alert(message)
+    //     );
+    // }
 });

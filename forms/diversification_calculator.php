@@ -328,7 +328,7 @@ function ur_diversification_calculator_fn()
             </div>
             
             <div class="cta_btn">
-                <a href="#" >Try Portflio Planner</a>
+                <a href="/financial-tools/portfolio-builder/" >Try Portflio Planner</a>
             </div>
         </div>
     </div>
@@ -344,7 +344,7 @@ function ur_diversification_calculator_fn()
             <!-- <p class="ur_disclaimer">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi temporibus tempora inventore assumenda laudantium.
             </p> -->
-            <form action="#" id="ur_contact_form_dc" class="ur_contact_form" method="POST">
+            <!-- <form action="#" id="ur_contact_form_dc" class="ur_contact_form" method="POST">
                 <div class="ur_row">
                     <div class="ur_col">
                         <label for="first_name">First Name*</label>
@@ -369,7 +369,9 @@ function ur_diversification_calculator_fn()
                 <label for="">Agree on Term and Conditions</label>
                 <br>
                 <button type="submit" id="ur_contact_form_btn">Check my Results</button>
-            </form>
+            </form> -->
+
+            <?php echo do_shortcode( '[contact-form-7 id="790" html_id="ur_contact_form_dc" html_class="ur_contact_form" title="pf form"]' );?>
         </div>
     </div>
     <?php

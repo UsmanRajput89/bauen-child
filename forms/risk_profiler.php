@@ -207,7 +207,7 @@ function ur_risk_profiler_fn()
             <!-- <p class="ur_disclaimer">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi temporibus tempora inventore assumenda laudantium.
             </p> -->
-            <form action="#" id="ur_contact_form_rf" class="ur_contact_form" method="POST">
+            <!-- <form action="#" id="ur_contact_form_rf" class="ur_contact_form" method="POST">
                 <div class="ur_row">
                     <div class="ur_col">
                         <label for="first_name">First Name*</label>
@@ -232,7 +232,9 @@ function ur_risk_profiler_fn()
                 <label for="">Agree on Term and Conditions</label>
                 <br>
                 <button type="submit" id="ur_contact_form_btn">Check my Results</button>
-            </form>
+            </form> -->
+
+            <?php echo do_shortcode( '[contact-form-7 id="790" html_id="ur_contact_form_rf" html_class="ur_contact_form" title="pf form"]' );?>
         </div>
     </div>
     <?php
